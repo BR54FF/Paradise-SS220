@@ -401,7 +401,6 @@
 		emagged = TRUE
 		to_chat(user, "<span class='notice'>You scramble the communication routing circuits!</span>")
 		SStgui.update_uis(src)
-		return TRUE
 
 /obj/machinery/computer/communications/attack_ai(mob/user as mob)
 	return src.attack_hand(user)

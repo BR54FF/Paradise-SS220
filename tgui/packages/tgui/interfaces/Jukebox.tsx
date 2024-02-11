@@ -53,7 +53,6 @@ export const Jukebox = (props, context) => {
     advanced_admin,
   } = data;
 
-  const MAX_NAME_LENGTH = 35;
   const need_payment = !payment && need_coin && !advanced_admin;
   const songs_sorted: Song[] = flow([sortBy((song: Song) => song.name)])(songs);
   const song_selected: Song | undefined = songs.find(
@@ -93,12 +92,8 @@ export const Jukebox = (props, context) => {
             <Stack.Item grow textAlign="center">
               <Section fill title="Проигрыватель">
                 <Stack fill vertical>
-                  <Stack.Item bold maxWidth="240px">
-                    {song_selected.name.length > MAX_NAME_LENGTH ? (
-                      <marquee>{song_selected.name}</marquee>
-                    ) : (
-                      song_selected.name
-                    )}
+                  <Stack.Item grow>
+                    <Box bold>{song_selected.name}</Box>
                   </Stack.Item>
                   <Stack fill mt={1.5}>
                     <Stack.Item grow basis="0">
@@ -177,8 +172,10 @@ export const Jukebox = (props, context) => {
                     />
                   </Stack.Item>
                 </Stack>
-                <Stack.Item textAlign="center" textColor="label">
+                <Box position="relative" textAlign="center" textColor="label">
                   <Knob
+                    mr={1}
+                    ml={1}
                     size={2}
                     color={
                       volume <= 25
@@ -202,7 +199,7 @@ export const Jukebox = (props, context) => {
                     }
                   />
                   Volume
-                </Stack.Item>
+                </Box>
               </Section>
             </Stack.Item>
           </Stack>

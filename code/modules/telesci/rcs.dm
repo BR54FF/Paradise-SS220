@@ -102,7 +102,7 @@
 		emagged = TRUE
 		do_sparks(3, TRUE, src)
 		to_chat(user, "<span class='boldwarning'>Warning: Safeties disabled.</span>")
-		return TRUE
+		return
 
 
 /obj/item/rcs/proc/try_send_container(mob/user, obj/structure/closet/C)

@@ -427,7 +427,6 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 
 /obj/machinery/clonepod/emag_act(user)
 	malfunction()
-	return TRUE
 
 /obj/machinery/clonepod/cmag_act(mob/user)
 	if(HAS_TRAIT(src, TRAIT_CMAGGED))

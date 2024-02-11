@@ -261,7 +261,21 @@
 		to_chat(usr, "<span class='notice'>There's no room for another VTEC unit!</span>")
 		return
 
-	R.speed -= 1 // Gotta go fast.
+	for(var/obj/item/borg/upgrade/floorbuffer/U in R.contents)
+		if(R.floorbuffer)
+			R.floorbuffer = FALSE
+			R.speed -= U.buffer_speed
+
+	for(var/datum/action/innate/robot_magpulse/magpulse in R.module_actions)
+		if(magpulse.active)
+			REMOVE_TRAIT(R, TRAIT_MAGPULSE, "innate boots")
+			to_chat(R, "You turn your magboots off.")
+			R.speed -= magpulse.slowdown_active
+			magpulse.button_icon_state = initial(magpulse.button_icon_state)
+			magpulse.active = FALSE
+
+	R.speed = -1 // Gotta go fast.
+
 	return TRUE
 
 /***********************/

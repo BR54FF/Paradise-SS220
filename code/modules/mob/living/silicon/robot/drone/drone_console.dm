@@ -66,8 +66,7 @@
 			health = round(D.health / D.maxHealth, 0.1),
 			charge = round(D.cell.charge / D.cell.maxcharge, 0.1),
 			location = "[A] ([T.x], [T.y])",
-			sync_cd = D.sync_cooldown > world.time ? TRUE : FALSE,
-			pathfinding = D.pathfinding
+			sync_cd = D.sync_cooldown > world.time ? TRUE : FALSE
 		)
 		data["drones"] += list(drone_data)
 	return data
@@ -114,14 +113,13 @@
 				to_chat(usr, "<span class='notice'>You issue a law synchronization directive for the drone.</span>")
 				D.law_resync()
 
-		if("recall")
+		if("shutdown")
 			var/mob/living/silicon/robot/drone/D = locateUID(params["uid"])
 			if(D)
-				to_chat(usr, "<span class='warning'>You issue a recall command for the unfortunate drone.</span>")
+				to_chat(usr, "<span class='warning'>You issue a kill command for the unfortunate drone.</span>")
 				if(D != usr) // Don't need to bug admins about a suicide
-					message_admins("[key_name_admin(usr)] issued recall order for drone [key_name_admin(D)] from control console.")
-				log_game("[key_name(usr)] issued recall order for [key_name(D)] from control console.")
-				// Yes, I know this proc is called shut_down, I've kept the name the same because emagged drones use it for death
+					message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
+				log_game("[key_name(usr)] issued kill order for [key_name(D)] from control console.")
 				D.shut_down()
 
 /obj/machinery/computer/drone_control/proc/find_fab(mob/user)

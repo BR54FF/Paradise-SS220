@@ -259,9 +259,8 @@
 		locked = FALSE
 		broken = TRUE
 		update_icon()
-		do_sparks(2, TRUE, src)
+		do_sparks(2, 1, src)
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
-		return TRUE
 
 /obj/structure/closet/crate/secure/emp_act(severity)
 	for(var/obj/O in src)

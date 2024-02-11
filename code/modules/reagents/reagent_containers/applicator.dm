@@ -26,7 +26,6 @@
 		emagged = TRUE
 		ignore_flags = TRUE
 		to_chat(user, "<span class='warning'>You short out the safeties on [src].</span>")
-		return TRUE
 
 /obj/item/reagent_containers/applicator/on_reagent_change()
 	if(!emagged)

@@ -36,6 +36,8 @@
 		var/distance = get_dist(epicenter, T)
 		var/will_affect = FALSE
 
+		if(distance < 0)
+			distance = 0
 		if(distance < heavy_range)
 			will_affect = T.emp_act(1)
 

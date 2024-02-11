@@ -29,7 +29,6 @@
 	if(!emagged)
 		to_chat(user, "<span class='warning'>You overload \the [src]'s voice synthesizer.</span>")
 		emagged = TRUE
-		return TRUE
 
 #undef USE_COOLDOWN
 

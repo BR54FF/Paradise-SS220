@@ -899,7 +899,6 @@
 	playsound(loc, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	dna = null
 	operation_req_access = list()
-	return TRUE
 
 
 

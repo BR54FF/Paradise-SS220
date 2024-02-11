@@ -153,7 +153,8 @@
 /obj/effect/landmark/damageturf,
 /obj/item/kirbyplants/dead{
 	desc = "A dead potted plant. Must have died from lack of EVA equipment.";
-	item_state = "plant-dead"
+	item_state = "plant-dead";
+	name = "potted plant"
 	},
 /turf/simulated/floor/plasteel/airless{
 	dir = 6;

@@ -370,7 +370,9 @@
 /turf/simulated/floor/plating/airless,
 /area/ruin/space/onehalf/hallway)
 "aV" = (
-/obj/machinery/door/airlock/medical/glass,
+/obj/machinery/door/airlock/medical/glass{
+	name = "airlock"
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;

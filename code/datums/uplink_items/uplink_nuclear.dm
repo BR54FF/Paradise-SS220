@@ -546,14 +546,17 @@
 
 // CYBERNETICS
 
+/datum/uplink_item/cyber_implants
+	category = "Cybernetic Implants"
+	surplus = 0
+	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
+
 /datum/uplink_item/cyber_implants/thermals
 	name = "Thermal Vision Implant"
 	desc = "These cybernetic eyes will give you thermal vision. Comes with an autosurgeon."
 	reference = "CIT"
 	item = /obj/item/autosurgeon/organ/syndicate/thermal_eyes
 	cost = 40
-	surplus = 0
-	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
 
 /datum/uplink_item/cyber_implants/xray
 	name = "X-Ray Vision Implant"
@@ -561,8 +564,6 @@
 	reference = "CIX"
 	item = /obj/item/autosurgeon/organ/syndicate/xray_eyes
 	cost = 50
-	surplus = 0
-	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
 
 /datum/uplink_item/cyber_implants/antistun
 	name = "Hardened CNS Rebooter Implant"
@@ -570,8 +571,6 @@
 	reference = "CIAS"
 	item = /obj/item/autosurgeon/organ/syndicate/anti_stam
 	cost = 60
-	surplus = 0
-	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
 
 /datum/uplink_item/cyber_implants/reviver
 	name = "Hardened Reviver Implant"
@@ -579,8 +578,6 @@
 	reference = "CIR"
 	item = /obj/item/autosurgeon/organ/syndicate/reviver
 	cost = 40
-	surplus = 0
-	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
 
 // BUNDLES
 

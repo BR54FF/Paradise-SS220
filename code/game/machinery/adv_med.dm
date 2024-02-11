@@ -10,8 +10,6 @@
 	active_power_consumption = 2500
 	light_color = "#00FF00"
 	var/mob/living/carbon/human/occupant
-	///What is the level of the stock parts in the body scanner. A scan_level of one detects organs of stealth_level 1 or below, while a scan level of 4 would detect 4 or below.
-	var/scan_level = 1
 	var/known_implants = list(/obj/item/bio_chip/chem, /obj/item/bio_chip/death_alarm, /obj/item/bio_chip/mindshield, /obj/item/bio_chip/tracking, /obj/item/bio_chip/health)
 
 /obj/machinery/bodyscanner/examine(mob/user)
@@ -53,10 +51,6 @@
 	component_parts += new /obj/item/stack/sheet/glass(null)
 	component_parts += new /obj/item/stack/cable_coil(null, 2)
 	RefreshParts()
-
-/obj/machinery/bodyscanner/RefreshParts()
-	for(var/obj/item/stock_parts/scanning_module/S in component_parts)
-		scan_level = S.rating
 
 /obj/machinery/bodyscanner/update_icon_state()
 	if(occupant)
@@ -338,8 +332,6 @@
 
 		var/intOrganData[0]
 		for(var/obj/item/organ/internal/I in occupant.internal_organs)
-			if(I.stealth_level > scan_level)
-				continue
 			var/organData[0]
 			organData["name"] = I.name
 			organData["desc"] = I.desc
@@ -517,14 +509,12 @@
 		dat += "<th>Injuries</th>"
 		dat += "</tr>"
 
-		for(var/obj/item/organ/internal/I in occupant.internal_organs)
-			if(I.stealth_level > scan_level)
-				continue
+		for(var/obj/item/organ/internal/i in occupant.internal_organs)
 			var/list/ailments = list()
 
-			if(I.status & ORGAN_DEAD)
+			if(i.status & ORGAN_DEAD)
 				ailments |= "Dead"
-			switch(I.germ_level)
+			switch(i.germ_level)
 				if(1 to INFECTION_LEVEL_ONE + 200)
 					ailments |= "Mild Infection"
 				if(INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 300)
@@ -540,8 +530,8 @@
 				if(INFECTION_LEVEL_TWO + 400 to INFINITY)
 					ailments |= "Septic"
 			dat += "<tr>"
-			dat += "<td>[I.name]</td>"
-			dat += "<td>[I.damage]</td>"
+			dat += "<td>[i.name]</td>"
+			dat += "<td>[i.damage]</td>"
 			dat += "<td>[jointext(ailments, "<br>")]</td>"
 			dat += "</tr>"
 		dat += "</table>"

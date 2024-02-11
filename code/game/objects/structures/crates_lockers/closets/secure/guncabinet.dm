@@ -19,7 +19,6 @@
 		locked = FALSE
 		to_chat(user, "<span class='notice'>You break the lock on [src].</span>")
 		update_icon()
-		return TRUE
 
 /obj/structure/closet/secure_closet/guncabinet/update_overlays()
 	. = list()

@@ -130,7 +130,7 @@
 		emagged = TRUE
 		locked = FALSE
 		ailock = FALSE
-		return TRUE
+		return
 
 /obj/machinery/turretid/attack_ai(mob/user as mob)
 	ui_interact(user)

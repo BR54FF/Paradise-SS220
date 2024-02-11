@@ -147,7 +147,6 @@
 		emagged = !emagged
 		playsound(loc, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		update_appearance(UPDATE_NAME|UPDATE_ICON_STATE)
-		return TRUE
 
 /obj/item/lightreplacer/attack_self(mob/user)
 	for(var/obj/machinery/light/target in user.loc)

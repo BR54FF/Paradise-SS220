@@ -21,7 +21,8 @@
 	if(!emagged)
 		to_chat(usr, "<span class='warning'>You short out the safeties, allowing it to be placed in the station sector.</span>")
 		emagged = TRUE
-		return TRUE
+		return
+
 	to_chat(usr, "<span class='warning'>The safeties are already shorted out!</span>")
 
 /obj/item/survivalcapsule/proc/get_template()
